@@ -437,7 +437,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 936d03bb5c7159846beedce9d8658916, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameObject: {fileID: 879534471}
+  triggerObject: {fileID: 879534471}
 --- !u!65 &879534473
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -701,6 +701,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 2084383407}
+  isGround: 0
   groundCheck: {fileID: 1622332553}
   groundMask:
     serializedVersion: 2

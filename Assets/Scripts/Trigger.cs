@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Trigger : MonoBehaviour
 {
-    public GameObject gameObject;
+    public GameObject triggerObject;
 
     bool triggered = false;
 
@@ -12,7 +12,7 @@ public class Trigger : MonoBehaviour
     {
         if (!triggered)
         {
-            gameObject.SetActive(false);
+            triggerObject.SetActive(false);
             triggered = true;
         }
     }

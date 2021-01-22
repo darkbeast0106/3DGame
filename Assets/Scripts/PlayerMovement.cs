@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public CharacterController controller;
     
-    bool isGround;
+    public bool isGround;
     public Transform groundCheck;
     public LayerMask groundMask;
     public float groundDistance = 0.4f;
