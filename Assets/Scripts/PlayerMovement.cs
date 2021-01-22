@@ -5,11 +5,25 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public CharacterController controller;
+    
+    bool isGround;
+    public Transform groundCheck;
+    public LayerMask groundMask;
+    public float groundDistance = 0.4f;
+    
+    Vector3 velocity;
     public float speed = 12f;
-
-    // Update is called once per frame
+    public float gravity = -9.81f;
+    public float jumpHeight = 3f;
     void Update()
     {
+        isGround = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+
+        if (isGround && velocity.y < 0)
+        {
+            velocity.y = -2f;
+        }
+
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
@@ -17,6 +31,13 @@ public class PlayerMovement : MonoBehaviour
 
         controller.Move(move * speed * Time.deltaTime);
 
+        if (Input.GetButtonDown("Jump") && isGround)
+        {
+            velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
+        }
 
+        velocity.y += 2 * gravity * Time.deltaTime;
+
+        controller.Move(velocity * Time.deltaTime);
     }
 }
